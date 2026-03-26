@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guest List Manager</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0d1117, #161b22);
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 28px;
+      background: linear-gradient(90deg, #111827, #0d1117);
+      border-bottom: 1px solid #30363d;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      color: #8b949e;
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      padding: 24px;
+    }
+
+    .panel {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .panel h2 {
+      color: #58a6ff;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
+    .guest-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 260px;
+    }
+
+    .guest-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .guest-number {
+      color: #58a6ff;
+      font-weight: bold;
+      width: 30px;
+      flex-shrink: 0;
+    }
+
+    .guest-name {
+      flex: 1;
+      color: #e6edf3;
+    }
+
+    .empty {
+      color: #8b949e;
+      text-align: center;
+      padding: 24px;
+      border: 1px dashed #30363d;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #c9d1d9;
+      font-size: 0.95rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #30363d;
+      background: #161b22;
+      color: #e6edf3;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #58a6ff;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    button {
+      padding: 12px 14px;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      background: #21262d;
+      color: #58a6ff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      background: #30363d;
+      color: #79c0ff;
+      transform: translateY(-1px);
+    }
+
+    .danger {
+      color: #ff7b72;
+    }
+
+    .danger:hover {
+      color: #ffa198;
+    }
+
+    .message {
+      margin-top: 16px;
+      min-height: 24px;
+      color: #8b949e;
+      font-size: 0.95rem;
+    }
+
+    .footer-note {
+      padding: 0 24px 24px;
+      color: #8b949e;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .main {
+        grid-template-columns: 1fr;
+      }
+
+      .button-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Guest List Manager</h1>
+    <p>HTML Version of my Java Guest System</p>
+  </div>
+
+  <div class="main">
+    <div class="panel">
+      <h2>Guest List</h2>
+      <div id="guestList" class="guest-list"></div>
+    </div>
+
+    <div class="panel">
+      <h2>Menu</h2>
+
+      <div class="form-group">
+        <label for="guestNumber">Guest Number</label>
+        <select id="guestNumber"></select>
+      </div>
+
+      <div class="form-group">
+        <label for="guestName">Guest Name</label>
+        <input type="text" id="guestName" placeholder="Enter guest name" />
+      </div>
+
+      <div class="button-grid">
+        <button onclick="addGuest()">Add Guest</button>
+        <button onclick="insertGuest()">Insert Guest</button>
+        <button onclick="renameGuest()">Rename Guest</button>
+        <button class="danger" onclick="removeGuest()">Remove Guest</button>
+      </div>
+
+      <div id="message" class="message"></div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Maximum of 10 guests. Preloaded names are included.
+  </div>
+</div>
+
+<script>
+  let guests = [
+    'Duendelle',
+    'Miming',
+    'Balto',
+    'Minggay',
+    'Oreo',
+    'Puti',
+    null,
+    null,
+    null,
+    null
+  ];
+
+  const guestList = document.getElementById('guestList');
+  const guestNumber = document.getElementById('guestNumber');
+  const guestName = document.getElementById('guestName');
+  const message = document.getElementById('message');
+
+  function loadGuestNumbers() {
+    guestNumber.innerHTML = '';
+    for (let i = 1; i <= 10; i++) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = i;
+      guestNumber.appendChild(option);
+    }
+  }
+
+  function displayGuests() {
+    guestList.innerHTML = '';
+    const filledGuests = guests.filter(g => g !== null);
+
+    if (filledGuests.length === 0) {
+      guestList.innerHTML = '<div class="empty">Guest list is empty.</div>';
+      return;
+    }
+
+    guests.forEach((guest, index) => {
+      if (guest !== null) {
+        const item = document.createElement('div');
+        item.className = 'guest-item';
+        item.innerHTML = `
+            <span class="guest-number">${index + 1}.</span>
+            <span class="guest-name">${guest}</span>
+          `;
+        guestList.appendChild(item);
+      }
+    });
+  }
+
+  function showMessage(text, isError = false) {
+    message.textContent = text;
+    message.style.color = isError ? '#ff7b72' : '#8b949e';
+  }
+
+  function getNameInput() {
+    return guestName.value.trim();
+  }
+
+  function addGuest() {
+    const name = getNameInput();
+    if (!name) {
+      showMessage('Please enter a guest name.', true);
+      return;
+    }
+
+    for (let i = 0; i < guests.length; i++) {
+      if (guests[i] === null) {
+        guests[i] = name;
+        guestName.value = '';
+        displayGuests();
+        showMessage('Guest added successfully.');
+        return;
+      }
+    }
+
+    showMessage('Guest list is already full.', true);
+  }
+
+  function insertGuest() {
+    const num = parseInt(guestNumber.value);
+    const name = getNameInput();
+
+    if (!name) {
+      showMessage('Please enter a guest name.', true);
+      return;
+    }
+
+    if (num >= 1 && num <= 10 && guests[num - 1] !== null) {
+      for (let i = guests.length - 1; i > num - 1; i--) {
+        guests[i] = guests[i - 1];
+      }
+      guests[num - 1] = name;
+      guestName.value = '';
+      displayGuests();
+      showMessage('Guest inserted successfully.');
+    } else {
+      showMessage('Error: There is no guest with that number.', true);
+    }
+  }
+
+  function renameGuest() {
+    const num = parseInt(guestNumber.value);
+    const name = getNameInput();
+
+    if (!name) {
+      showMessage('Please enter a new guest name.', true);
+      return;
+    }
+
+    if (num >= 1 && num <= 10 && guests[num - 1] !== null) {
+      guests[num - 1] = name;
+      guestName.value = '';
+      displayGuests();
+      showMessage('Guest renamed successfully.');
+    } else {
+      showMessage('Error: There is no guest with that number.', true);
+    }
+  }
+
+  function removeGuest() {
+    const num = parseInt(guestNumber.value);
+
+    if (num >= 1 && num <= 10 && guests[num - 1] !== null) {
+      guests[num - 1] = null;
+      const temp = new Array(10).fill(null);
+      let ti = 0;
+      for (let i = 0; i < guests.length; i++) {
+        if (guests[i] !== null) {
+          temp[ti] = guests[i];
+          ti++;
+        }
+      }
+      guests = temp;
+      displayGuests();
+      showMessage('Guest removed successfully.');
+    } else {
+      showMessage('Error: There is no guest with that number.', true);
+    }
+  }
+
+  loadGuestNumbers();
+  displayGuests();
+</script>
+</body>
+</html>
