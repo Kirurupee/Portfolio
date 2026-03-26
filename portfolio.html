@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1 class="name-title">Duendelle Jhon P. Sumpay</h1>
+  <p>Computer Engineering Student | Computer Hardware Specialist | Embedded Systems Enthusiast | IT Support</p>
+
+  <button id="topBtn" onclick="goTop()">↑ Top</button>
+
+  <script>
+    const topBtn = document.getElementById("topBtn");
+
+    window.onscroll = function () {
+      if (document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+
+    function goTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  </script>
+
+  <div class="header-buttons">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#resume">Resume</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<section id="about" class="about-section">
+  <div class="about-header">
+    <span class="about-tag">ABOUT ME</span>
+    <p class="about-subtitle">Computer Engineering Student | Hardware Focus | IT Support</p>
+  </div>
+
+  <div class="about-box">
+    <p>
+      Hello! I am a Computer Engineering student with a strong focus on computer hardware and IT support.
+      I have experience in troubleshooting hardware and software issues, system assembly, maintenance,
+      and assisting users in resolving technical problems. I am knowledgeable in handling computer
+      components, diagnosing system issues, and ensuring reliable system performance. I also have basic
+      experience in embedded systems as part of my practice using platforms like Arduino and ESP32,
+      which helps me expand my understanding of both hardware and software integration.
+    </p>
+  </div>
+</section>
+
+<section id="projects" class="about-section">
+  <div class="about-header">
+    <span class="about-tag">PROJECTS</span>
+    <p class="about-subtitle">Some of the projects I have worked on</p>
+  </div>
+
+  <div class="projects">
+    <div class="card">
+      <h3>Project 1</h3>
+      <p>Description of your project.</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/Udemy%20(Java%20for%20Absolute%20Beginner)/Project/Simple%20Guest%20List%20Program/HTML%20Version/project1.html">View Project</a>
+    </div>
+
+    <div class="card">
+      <h3>Project 2</h3>
+      <p>Description of your project.</p>
+      <a href="#">View Project</a>
+    </div>
+
+    <div class="card">
+      <h3>Project 3</h3>
+      <p>Description of your project.</p>
+      <a href="#">View Project</a>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="about-section">
+  <div class="about-header">
+    <span class="about-tag">SKILLS</span>
+    <p class="about-subtitle">My technical knowledge and practical skills</p>
+  </div>
+
+  <div class="skills-list">
+    <span>Hardware Troubleshooting</span>
+    <span>PC Assembly & Maintenance</span>
+    <span>IT Support</span>
+    <span>Windows Installation</span>
+    <span>System Setup</span>
+    <span>Basic Networking</span>
+    <span>Computer Maintenance</span>
+    <span>Peripheral Setup</span>
+    <span>Arduino (Basic)</span>
+    <span>Embedded Systems (Basic)</span>
+  </div>
+</section>
+
+<section id="resume" class="about-section">
+  <div class="about-header">
+    <span class="about-tag">RESUME</span>
+  </div>
+
+  <div class="about-box resume-box">
+    <div class="resume-item">
+      <h3>Education</h3>
+      <p>Bachelor of Science in Computer Engineering</p>
+      <p class="muted">Western Institute of Technology | 2023-2026</p>
+    </div>
+
+    <div class="resume-item">
+      <h3>Experience</h3>
+      <p>
+        Worked on hardware-based projects and performed troubleshooting of computer systems,
+        including assembly, maintenance, and resolving technical issues.
+      </p>
+    </div>
+
+    <div class="resume-download">
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/Resume.pdf" target="_blank">
+        ⬇ View / Download Resume
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section id="certificates" class="about-section">
+  <div class="about-header">
+    <span class="about-tag">CERTIFICATES</span>
+    <p class="about-subtitle">Training, seminars, and achievements</p>
+  </div>
+
+  <div class="projects">
+
+    <div class="card">
+      <h3>AI 101: What is Artificial Intelligence</h3>
+      <p>Introduction to artificial intelligence concepts</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/AI%20101%3A%20What%20is%20Artificial%20Intelligence.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>AI for Beginners: AI Careers and Opportunities</h3>
+      <p>Overview of AI career paths</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/AI%20for%20Beginners%3A%20AI%20Careers%20and%20Opportunities.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>AI for Beginners: Getting Started in AI</h3>
+      <p>Basic introduction to AI</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/AI%20for%20Beginners%3A%20Getting%20Started%20in%20AI.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Arduino Step by Step Getting Serious</h3>
+      <p>Arduino development training</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Arduino%20Step%20by%20Step%20Getting%20Serious%20Certificate.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Building Your Own Firewall: Programming For Networking Protection</h3>
+      <p>Network security fundamentals</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Building%20Your%20Own%20Firewall%3A%20Programming%20For%20Networking%20Protection.png" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Cybersecurity in the Age of Artificial Intelligence</h3>
+      <p>AI in cybersecurity</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Cybersecurity%20in%20the%20Age%20of%20Artificial%20Intelligence.png" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Embedded Systems for Beginners</h3>
+      <p>Embedded systems basics</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Embedded%20Systems%20for%20Beginners.jpg" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>IT Support Fundamental Certificate</h3>
+      <p>Technical support skills</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/IT%20Support%20Fundamental%20Certificate.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Integrated OS - Be More Digi-TALINO Webinar</h3>
+      <p>Operating systems and digital skills</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Integrated%20OS%20-%20Be%20More%20Digi-TALINO%20Webinar.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Introduction to IT Project Management</h3>
+      <p>Project management basics</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Introduction%20to%20IT%20Project%20Management.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Java for Absolute Beginners Certificate</h3>
+      <p>Java fundamentals</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Java%20for%20Absolute%20Beginners%20Certificate.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Network Sharing Solutions</h3>
+      <p>Network configuration and sharing</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Network%20Sharing%20Solutions.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Next-Gen Computer Engineers: Empowering Future Innovators Through the Digital Economy and ICT Development Plan</h3>
+      <p>Technology and innovation seminar</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Next-Gen%20Computer%20Engineers%3A%20Empowering%20Future%20Innovators%20Through%20the%20Digital%20Economy%20and%20ICT%20Development%20Plan.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Next-Gen NLP on a Budget: The Art of Small Language Modeling</h3>
+      <p>NLP and AI techniques</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Next-Gen%20NLP%20on%20a%20Budget%3A%20The%20Art%20of%20Small%20Language%20Modeling.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Next-Gen Tech Talks: IoT Applications and Data-Driven Governance</h3>
+      <p>IoT and smart systems</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Next-Gen%20Tech%20Talks%3A%20IoT%20Applications%20and%20Data-Driven%20Governance.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Object Oriented Programming Concepts</h3>
+      <p>OOP fundamentals</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Object%20Oriented%20Programming%20Concepts.png" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>PHP for Web Development Creating Your First Webpage</h3>
+      <p>Web development basics</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/PHP%20for%20Web%20Development%20Creating%20Your%20First%20Webpage.pdf" target="_blank">View</a>
+    </div>
+
+    <div class="card">
+      <h3>Python for Cybersecurity: Writing Scripts To Automate Security</h3>
+      <p>Cybersecurity automation</p>
+      <a href="https://github.com/Kirurupee/Portfolio/blob/main/CERTIFICATES/Python%20for%20Cybersecurity%3A%20Writing%20Scripts%20To%20Automate%20Security.jpeg" target="_blank">View</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="about-section contact-section">
+  <div class="about-header">
+    <span class="about-tag">CONTACT</span>
+    <p class="about-subtitle">Reach out to me here</p>
+  </div>
+
+  <div class="about-box contact-box">
+    <p>Email: <a href="mailto:duendellejhonsumpay08@gmail.com">duendellejhonsumpay08@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/Kirurupee" target="_blank">Kirurupee</a></p>
+    <p>Facebook: <a href="#">https://www.facebook.com/crx.xel/</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Duendelle Jhon Sumpay | My Portfolio</p>
+</footer>
+
+</body>
+</html>
